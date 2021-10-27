@@ -1,2 +1,2 @@
-# BluIDSDK-Android
-An SDK for using BluID credentials with android phones
+# BluIDSDK-Android-Sample
+A sample android application for using BluID SDK 
