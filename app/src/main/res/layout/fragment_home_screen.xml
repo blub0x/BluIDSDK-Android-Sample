@@ -1,0 +1,1501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@color/blue"
+    tools:context=".fragments.HomeScreenFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mainScreenToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blue"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="@color/blue"
+                app:title="@string/app_name"
+                app:titleTextColor="@color/white" />
+
+            <TextView
+                android:id="@+id/divider0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:text="@string/userLoginTitle"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardview_default_elevation"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="(none)" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/loginNavigationButton"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/login" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/environmentLAbel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/environment" />
+
+                <Spinner
+                    android:id="@+id/environmentList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/blue"
+                    android:contentDescription="@string/AccessType" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:text="@string/bluPointDeviceTitle"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardview_default_elevation"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/ScanForDevices" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/bleDeviceScanNavigationButton"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Scan" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/SelectedDevice" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/selectedDeviceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:singleLine="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/transferCredsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/transferCreds" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/transferCredsButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/transfer" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/autoTransferLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/autoTransfer" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleAutoTransfer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:text="@string/userSettingsTitle"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardview_default_elevation"
+                android:background="?android:attr/listDivider" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsTap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Tap" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleTap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsTwist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Twist" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleTwist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsInRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/InRange" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleInRange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsAppSpecific"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/AppSpecific" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleAppSpecific"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsWave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Wave" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleWave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsAI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/AI" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleAI"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsAppleWatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/AppleWatch" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleAppleWatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsBluRemote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/BluREMOTE" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleBluRemote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsEnhancedTap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/EnhancedTap" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleEnhancedTap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/allowAccessType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/AccessType" />
+
+                <Spinner
+                    android:id="@+id/accessType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:backgroundTint="@color/blue"
+                    android:contentDescription="@string/AccessType" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/userSettingsVibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Vibrate" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/toggleVibrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:text="@string/adminAccessTitle"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardview_default_elevation"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/unlckBluPointLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/unlockBluPOINT" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/unlockBluPointButton"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/unlock" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/deviceFunctionality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/deviceConnectionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/reboot"
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/reboot" />
+
+                    <Button
+                        android:id="@+id/disconnect"
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disconnect" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+<!--                    <Button-->
+<!--                        android:id="@+id/factoryReset"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/factoryReset" />-->
+
+                    <Button
+                        android:id="@+id/factoryReset"
+                        android:layout_width="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/factoryReset" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/firmwareUpdateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/flashFirmware"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/FlashFirmware" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/flashFirmwareSingle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/Single"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/flashFirmwareMultiDevice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/MultiDevice"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/namelabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/name" />
+
+
+                    <EditText
+                        android:id="@+id/nameValue"
+                        android:layout_width="180dp"
+                        android:layout_height="48dp"
+                        android:textAlignment="viewStart" />
+
+                    <Button
+                        android:id="@+id/updateName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/update" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/blePowerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/blePower"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/blePower" />
+
+
+                    <TextView
+                        android:id="@+id/blePowerValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/one"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreasePower"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increasePower"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/glowLEDGreen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/GlowLED" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/ledToggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/ringBuzzer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/RingBuzzer" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/toggleRingBuzzer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/idleLED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="@string/idleLED" />
+
+                    <Spinner
+                        android:id="@+id/idleLEDList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:backgroundTint="@color/blue"
+                        android:contentDescription="LEDColorList" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/inUseLED"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="@string/inUseLED" />
+
+                    <Spinner
+                        android:id="@+id/inUseLEDList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:backgroundTint="@color/blue"
+                        android:contentDescription="LEDColorList" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/bluPOINTSettingsTitle"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/cardview_default_elevation"
+                    android:background="?android:attr/listDivider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/Tap" />
+
+                    <Space
+                        android:layout_width="30dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tapValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseTap"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseTap"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTTapRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsTwist"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/Twist" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/twistValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+
+                    <Button
+                        android:id="@+id/decreaseTwist"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseTwist"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTTwist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTTwistRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsInRange"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/InRange" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/inRangeValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+
+                    <Button
+                        android:id="@+id/decreaseInRange"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseInRange"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTINRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTInRangeRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsAppSpecific"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/AppSpecific" />
+
+                    <Space
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/appSpecificValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseAppSpecific"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseAppSpecific"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTAppSpecific"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTAppSpecificRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsWave"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/Wave" />
+
+                    <Space
+                        android:layout_width="25dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/waveValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseWave"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseWave"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTWave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTWaveRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsAI"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/AI" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/AIValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseAI"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseAI"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTAI"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTAIRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsAppleWatch"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/AppleWatch" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/appleWatchValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseAppleWatch"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseAppleWatch"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTAppleWatch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTAppleWatchRange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/bluPOINTSettingsBluREMOTE"
+                        android:layout_width="52dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:text="@string/BluREMOTE" />
+
+                    <Space
+                        android:layout_width="1dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/bluREMOTEValue"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/zero"
+                        android:textAlignment="center" />
+
+                    <Button
+                        android:id="@+id/decreaseBluREMOTE"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/minus" />
+
+                    <Button
+                        android:id="@+id/increaseBluREMOTE"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:text="@string/plus" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/bluPOINTBluREMOTE"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setBluPOINTBluREMOTERange"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/deviceEnhancedTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/EnhancedTap" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/toggleDeviceEnhancedTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/setDeviceEnhancedTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/set" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/enhancedTapMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/iosBackgroundRangeLabel"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="@string/iosBackgroundRange" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/showIOSBackgroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/zero"
+                            android:textAlignment="center" />
+
+                        <Button
+                            android:id="@+id/decreaseIOSBackgroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/minus" />
+
+                        <Button
+                            android:id="@+id/increaseIOSBackgroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/plus" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/iosForegroundRangeLabel"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="@string/iosForegroundRange" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/showIOSForegroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/zero"
+                            android:textAlignment="center" />
+
+                        <Button
+                            android:id="@+id/decreaseIOSForegroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/minus" />
+
+                        <Button
+                            android:id="@+id/increaseIOSForegroundRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/plus" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/AndroidRangeLabel"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_weight="1"
+                            android:text="@string/AndroidRange" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/showAndroidRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/zero"
+                            android:textAlignment="center" />
+
+                        <Button
+                            android:id="@+id/decreaseAndroidRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/minus" />
+
+                        <Button
+                            android:id="@+id/increaseAndroidRange"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:text="@string/plus" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cardview_default_elevation"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/diagnosticLogs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diagnosticLogs"
+                    android:textStyle="bold" />
+                    <Space
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                <Button
+                    android:id="@+id/diagnosticLogsButton"
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/show" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/showDiagnosticLogs"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sdk_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sdk_version"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/sdk_version_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="20dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/app_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_version"
+                    android:textStyle="bold" />
+
+                <Space
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/app_version_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginBottom="20dp"
+                    android:text="@string/version_app"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

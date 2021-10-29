@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeScreenFragment">
+
+    <fragment
+        android:id="@+id/homeScreenFragment"
+        android:name="com.blub0x.bluidsdk_sample_app.fragments.HomeScreenFragment"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_homeScreenFragment_to_userLoginFragment"
+            app:destination="@id/userLoginFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_firmwareListFragment"
+            app:destination="@id/firmwareListFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_scanDevicesFragment"
+            app:destination="@id/scanDevicesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userLoginFragment"
+        android:name="com.blub0x.bluidsdk_sample_app.fragments.UserLoginFragment"
+        android:label="fragment_user_login"
+        tools:layout="@layout/fragment_user_login" >
+        <action
+            android:id="@+id/action_userLoginFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firmwareListFragment"
+        android:name="com.blub0x.bluidsdk_sample_app.fragments.FirmwareListFragment"
+        android:label="fragment_firmware_list"
+        tools:layout="@layout/fragment_firmware_list" >
+        <action
+            android:id="@+id/action_firmwareListFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+        <action
+            android:id="@+id/action_firmwareListFragment_to_firmwareMultiDevices"
+            app:destination="@id/firmwareMultiDevices" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanDevicesFragment"
+        android:name="com.blub0x.bluidsdk_sample_app.fragments.ScanDevicesFragment"
+        android:label="fragment_scan_devices"
+        tools:layout="@layout/fragment_scan_devices" >
+        <action
+            android:id="@+id/action_scanDevicesFragment_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firmwareMultiDevices"
+        android:name="com.blub0x.bluidsdk_sample_app.fragments.FirmwareMultiDevices"
+        android:label="fragment_firmware_multi_devices"
+        tools:layout="@layout/fragment_firmware_multi_devices" >
+        <action
+            android:id="@+id/action_firmwareMultiDevices_to_homeScreenFragment"
+            app:destination="@id/homeScreenFragment" />
+        <action
+            android:id="@+id/action_firmwareMultiDevices_to_firmwareListFragment"
+            app:destination="@id/firmwareListFragment" />
+    </fragment>
+</navigation>

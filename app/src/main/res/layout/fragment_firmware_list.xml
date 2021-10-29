@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.FirmwareListFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue">
+
+            <ImageButton
+                android:id="@+id/returnBackFromFirmwareList"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/cancel"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                android:background="@color/blue"
+                android:contentDescription="@string/cancel"
+                android:layout_gravity="left"
+                />
+
+            <TextView
+                android:id="@+id/ListOfAvailableFirmware"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/ListOfAvailableFirmware"
+                android:layout_gravity="center"
+                android:layout_margin="2dp" />
+
+        <Button
+                android:id="@+id/firmwareDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/upgrade"
+                android:layout_gravity="right"
+                android:visibility="gone"
+                />
+
+    </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/firmwareListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin = "5dp"
+            />
+
+
+</LinearLayout>

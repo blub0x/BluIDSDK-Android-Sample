@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">BluIDSDK Sample App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">login</string>
+    <string name="Scanfordevices">Scan for devices</string>
+    <string name="Scan">Scan</string>
+    <string name="SelectedDevice">Selected Device</string>
+    <string name="Tap">Tap</string>
+    <string name="Twist">Twist</string>
+    <string name="InRange">InRange</string>
+    <string name="AI">AI</string>
+    <string name="AppSpecific">App Specific</string>
+    <string name="BluREMOTE">BluREMOTE</string>
+    <string name="AppleWatch">Apple Watch</string>
+    <string name="Wave">Wave</string>
+    <string name="Vibrate">Vibrate</string>
+    <string name="EnhancedTap">Enhanced Tap</string>
+    <string name="AccessType">Access Type</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="zero">0</string>
+    <string name="ScanForDevices">Scan for devices</string>
+    <string name="FlashFirmware">Flash Firmware</string>
+    <string name="Single">Single</string>
+    <string name="MultiDevice">MultiDevice</string>
+    <string name="ListOfAvailableFirmware">List Of Available Firmware</string>
+    <string name="cancel">cancel</string>
+    <string name="download">Download</string>
+    <string name="done">Done</string>
+    <string name="unselectedBluPOINTDevices">UNSELECTED BluPOINT DEVICES</string>
+    <string name="selectedBluPOINTDevices">SELECTED BluPOINT DEVICES</string>
+    <string name="selectDevice">Select Devices</string>
+    <string name="no_data_available" />
+    <string name="mac">MAC</string>
+    <string name="update">Update</string>
+    <string name="name">Name</string>
+    <string name="key">Key</string>
+    <string name="blePower">BLE Power</string>
+    <string name="GlowLED">Glow LED(green)</string>
+    <string name="RingBuzzer">Ring Buzzer</string>
+    <string name="readerID">Reader ID</string>
+    <string name="weigand">Weigand</string>
+    <string name="idleLED">Idle LED</string>
+    <string name="inUseLED">In-use LED</string>
+    <string name="unlockBluPOINT">Unlock BluPOINT</string>
+    <string name="unlock">Unlock</string>
+    <string name="reboot">Reboot</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="enableLogs">Enable Logs</string>
+    <string name="bleDeviceName">Enter BLE device name</string>
+    <string name="transferCreds">Transfer Credentials</string>
+    <string name="transfer">Transfer</string>
+    <string name="autoTransfer">Auto Transfer</string>
+    <string name="set">Set</string>
+    <string name="iosBackgroundRange">iOS Background Range</string>
+    <string name="AndroidRange">Android Range</string>
+    <string name="iosForegroundRange">iOS Foreground Range</string>
+    <string name="bluPointDeviceTitle">BLUPOINT DEVICE</string>
+    <string name="environment">Environment</string>
+    <string name="userLoginTitle">USER LOGIN</string>
+    <string name="userSettingsTitle">USER SETTINGS</string>
+    <string name="adminAccessTitle">ADMIN ACCESS</string>
+    <string name="bluPOINTSettingsTitle">BLUPOINT SETTINGS</string>
+    <string name="debudLogsitle">DEBUG LOGS</string>
+    <string name="wiegand">Wiegand</string>
+    <string name="Downloading">Downloading...</string>
+    <string name="one">1</string>
+    <string name="diagnosticLogs">Diagnostic Logs</string>
+    <string name="sdk_version">SDK Version</string>
+    <string name="sdk_version_number">1</string>
+    <string name="MultiDeviceFirmwareUpgrade">Multi Device Firmware Upgrade</string>
+    <string name="Upgrading">Upgrading</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="app_version">AppVersion</string>
+    <string name="version_app">1.53</string>
+    <string name="factoryReset">Factory Reset</string>
+    <string name="show">Show</string>
+    <string-array name="AllowAccessType">
+        <item name="foreground">Foreground</item>
+        <item name="phoneUnlocked">Phone Unlocked</item>
+        <item name="always">Always</item>
+    </string-array>
+    <string-array name="LEDColorList">
+        <item name="off">Off</item>
+        <item name="white">White</item>
+        <item name="cyan">Cyan</item>
+        <item name="hostControlled">HostControlled</item>
+        <item name="magenta">Magenta</item>
+        <item name="amber">Amber</item>
+        <item name="blue">Blue</item>
+        <item name="green">Green</item>
+        <item name="red">Red</item>
+    </string-array>
+    <string-array name="environment">
+        <item name="production">PRODUCTION</item>
+        <item name="QA">QA</item>
+        <item name="QA_Test_2">QA_TEST_2</item>
+        <item name="QA_Test_3">QA_TEST_3</item>
+    </string-array>
+
+
+
+</resources>
