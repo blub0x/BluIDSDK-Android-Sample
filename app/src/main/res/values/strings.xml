@@ -76,6 +76,8 @@
     <string name="version_app">1.53</string>
     <string name="factoryReset">Factory Reset</string>
     <string name="show">Show</string>
+    <string name="userID">User ID</string>
+    <string name="getCards">Sync</string>
     <string-array name="AllowAccessType">
         <item name="foreground">Foreground</item>
         <item name="phoneUnlocked">Phone Unlocked</item>

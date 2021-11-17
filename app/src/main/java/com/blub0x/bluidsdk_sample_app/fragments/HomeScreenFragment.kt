@@ -528,6 +528,11 @@ class HomeScreenFragment : Fragment() {
             binding?.toggleAutoTransfer?.isEnabled = false
         }
 
+        if( m_model.syncPersonCardsPersonID.value != null)
+        {
+            binding?.userIDValue?.setText(m_model.syncPersonCardsPersonID.value)
+        }
+
 
     }
 
@@ -673,6 +678,8 @@ class HomeScreenFragment : Fragment() {
             m_model.viewInit.value = true
             m_model.deviceUnlocked.value = false
             binding?.flashFirmwareMultiDevice?.isEnabled = false
+            binding?.getCardsByID?.isEnabled = false
+            binding?.userIDValue?.isEnabled = false
         }
 
         m_model.userLoginData.observe(viewLifecycleOwner, Observer<UserData?> { item ->
@@ -680,11 +687,16 @@ class HomeScreenFragment : Fragment() {
                 binding?.loginNavigationButton?.text = "Logout"
                 binding?.userNameLabel?.text = it
                 binding?.flashFirmwareMultiDevice?.isEnabled = true
+                binding?.userIDValue?.isEnabled = true
+                binding?.getCardsByID?.isEnabled = true
                 return@Observer
             }
             binding?.userNameLabel?.text = "none"
             binding?.flashFirmwareMultiDevice?.isEnabled = false
-
+            binding?.userIDValue?.isEnabled = false
+            binding?.getCardsByID?.isEnabled = false
+            m_model.syncPersonCardsPersonID.value = null
+            binding?.userIDValue?.setText("")
            binding?.loginNavigationButton?.text = "Login"
         })
 
@@ -1222,6 +1234,40 @@ class HomeScreenFragment : Fragment() {
                 Utility.m_AlertDialog?.show("Login Please")
             }
         )
+
+        binding?.getCardsByID?.setOnClickListener(
+            View.OnClickListener {
+                if (binding?.userIDValue?.text?.isEmpty() == true) {
+                    Utility.m_AlertDialog?.show("Field cannot be empty!")
+                    return@OnClickListener
+                }
+                else {
+                    Utility.m_ProgressBar?.show()
+                    m_scope.launch {
+                        Utility.m_BluIDSDK_Client?.let { sdkClient ->
+                            val response = sdkClient.syncPersonCardsByID(
+                                binding?.userIDValue?.text.toString()
+                            )
+                            activity?.runOnUiThread {
+                                if (response.error == null) {
+                                    m_model.syncPersonCardsPersonID.value = binding?.userIDValue?.text.toString()
+                                    Toast.makeText(
+                                        view.context,
+                                        "Total cards: ${response.personCardDetails?.count()}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                } else {
+                                    Utility.m_AlertDialog?.show("Error : " + response.error)
+                                }
+                            }
+                        }
+                        Utility.m_ProgressBar?.dismiss()
+                    }
+                }
+
+            }
+        )
+
 
         binding?.updateName?.setOnClickListener(
             View.OnClickListener {

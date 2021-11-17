@@ -90,7 +90,34 @@
                     android:backgroundTint="@color/blue"
                     android:contentDescription="@string/AccessType" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/userIDLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/userID" />
+
+
+                <EditText
+                    android:id="@+id/userIDValue"
+                    android:layout_width="180dp"
+                    android:layout_height="48dp"
+                    android:textAlignment="viewStart" />
+
+                <Button
+                    android:id="@+id/getCardsByID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="@string/getCards" />
+
+
+            </LinearLayout>
             <TextView
                 android:id="@+id/divider1"
                 android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.blub0x.BluIDSDK.models.*
 
 class SharedDataModel : ViewModel() {
+    var syncPersonCardsPersonID = MutableLiveData<String>()
     var userLoginData = MutableLiveData<UserData?>()
     var selectedDevice = MutableLiveData<Device_Information?>()
     var generalUserSettings = MutableLiveData<UserPreferences?>()
