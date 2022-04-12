@@ -22,6 +22,10 @@ import com.blub0x.bluidsdk_sample_app.databinding.FragmentFirmwareMultiDevicesBi
 import com.blub0x.bluidsdk_sample_app.databinding.FragmentScanDevicesBinding
 import com.blub0x.bluidsdk_sample_app.model.SharedDataModel
 import com.blub0x.bluidsdk_sample_app.utils.Utility
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 class ScanDevicesFragment : Fragment() {
     private val m_TAG = "ScanDevicesFragment"
@@ -62,10 +66,10 @@ class ScanDevicesFragment : Fragment() {
         binding?.scanDeviceRecyclerView?.adapter = deviceAdapter
         activity?.let { _ ->
             Unit
-            try {
-                Utility.m_ProgressBar?.show()
-                Utility.m_IsScanningStarted = true
-                Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
+            Utility.m_ProgressBar?.show()
+            Utility.m_IsScanningStarted = true
+            CoroutineScope(Dispatchers.Default).launch {
+                val scanError = Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
                     ScanFilter(
                         -80,
                         1000
@@ -80,17 +84,18 @@ class ScanDevicesFragment : Fragment() {
                         deviceAdapter.notifyDataSetChanged()
                     }
                 }
-                Utility.m_ProgressBar?.dismiss()
-            } catch (exception: BluIDSDKException) {
-                activity?.runOnUiThread {
-                    Utility.m_ProgressBar?.dismiss()
-                    Toast.makeText(view.context, exception.message, Toast.LENGTH_SHORT).show()
-                    exception.message?.let { Utility.m_AlertDialog?.show(it) }
-                    findNavController().navigate(R.id.action_scanDevicesFragment_to_homeScreenFragment)
+                if (scanError != null) {
+                    activity?.runOnUiThread {
+                        Utility.m_ProgressBar?.dismiss()
+                        Toast.makeText(view.context, scanError.message, Toast.LENGTH_SHORT).show()
+                        scanError.message?.let { Utility.m_AlertDialog?.show(it) }
+                        findNavController().navigate(R.id.action_scanDevicesFragment_to_homeScreenFragment)
+                    }
                 }
             }
+                Utility.m_ProgressBar?.dismiss()
+            }
         }
-    }
 
     override fun onDestroyView(){
         super.onDestroyView()

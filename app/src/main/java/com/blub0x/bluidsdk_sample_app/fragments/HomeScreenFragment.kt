@@ -26,6 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
 import java.text.SimpleDateFormat
 import com.blub0x.bluidsdk_sample_app.databinding.FragmentHomeScreenBinding
+import com.blub0x.bluidsdk_sample_app.utils.Utility.m_BluIDSDK_Client
 
 
 @ObsoleteCoroutinesApi
@@ -879,24 +880,26 @@ class HomeScreenFragment : Fragment() {
                 Utility.m_BluIDSDK_Client?.startGestureBasedAuthentication()
                 m_model.autoTransfer.value = true
 
-                try {
                     Utility.m_IsScanningStarted = true
-                    Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
-                        ScanFilter(
-                            -80,
-                            1000
-                        )
-                    ) { bleDevices ->
-                        Unit
-                        Log.d(m_TAG, bleDevices.map { it.name }.toString())
+                    m_scope.launch {
+                        val scanError = Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
+                            ScanFilter(
+                                -80,
+                                1000
+                            )
+                        ) { bleDevices ->
+                            Unit
+                            Log.d(m_TAG, bleDevices.map { it.name }.toString())
+                        }
+                        if (scanError != null) {
+                            activity?.runOnUiThread {
+                                Toast.makeText(view.context, scanError.message, Toast.LENGTH_LONG)
+                                    .show()
+                                m_model.autoTransfer.value = false
+                                scanError.message?.let { Utility.m_AlertDialog?.show(it) }
+                            }
+                        }
                     }
-                } catch (exception: BluIDSDKException) {
-                    activity?.runOnUiThread {
-                        Toast.makeText(view.context, exception.message, Toast.LENGTH_SHORT).show()
-                        binding?.toggleAutoTransfer?.isChecked = false
-                        exception.message?.let { Utility.m_AlertDialog?.show(it) }
-                    }
-                }
             }
         })
 
@@ -1132,7 +1135,7 @@ class HomeScreenFragment : Fragment() {
                                         Log.e(m_TAG, "Expiry time not found")
                                     }
                                 },
-                                disconnectCallback = { _: String ->
+                                onDisconnect = { _: String ->
                                     Utility.progressDialog?.dismiss()
                                     if(errorCheck == null && expiryTimeCheck == null){
                                         Utility.m_ProgressBar?.dismiss()
@@ -1246,7 +1249,8 @@ class HomeScreenFragment : Fragment() {
                     m_scope.launch {
                         Utility.m_BluIDSDK_Client?.let { sdkClient ->
                             val response = sdkClient.syncPersonCardsByID(
-                                binding?.userIDValue?.text.toString()
+                                binding?.userIDValue?.text.toString(),
+                                CredentialType.BluB0XMobile
                             )
                             activity?.runOnUiThread {
                                 if (response.error == null) {

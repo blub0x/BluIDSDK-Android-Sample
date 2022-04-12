@@ -63,7 +63,7 @@ class FirmwareListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val firmwares: ArrayList<Device_Firmware> =
             Utility.m_BluIDSDK_Client?.listAvailableFirmwareVersions()!!
-        val cancelButton = view.findViewById<ImageButton>(R.id.returnBackFromFirmwareList)
+        view.findViewById<ImageButton>(R.id.returnBackFromFirmwareList)
 
         val firmwareAdapter = FirmwareListAdapter(firmwares) {
             m_model.selectedFirmware.value = it

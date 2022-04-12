@@ -20,7 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BluIDSDK_Sample_App">
         <service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true"/>
-        <receiver android:name="com.blub0x.BluIDSDK.utils.DeviceStateObserver" ></receiver>
+        <receiver android:name="com.blub0x.BluIDSDK.utils.DeviceStateObserver"
+            android:exported="false"
+            />
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustNothing"

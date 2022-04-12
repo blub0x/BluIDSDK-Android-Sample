@@ -127,10 +127,11 @@ class FirmwareMultiDevices : Fragment() {
         }
         binding?.selectedDeviceRecyclerView?.adapter = selectedDeviceAdapter
 
-        activity?.let { _ ->
+        activity?.let { _activity ->
+            CoroutineScope(Dispatchers.Default).launch {
             Unit
-            try {
-                Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
+
+               var scanError = Utility.m_BluIDSDK_Client?.startDeviceDiscovery(
                     ScanFilter(
                         -80,
                         3000
@@ -149,6 +150,12 @@ class FirmwareMultiDevices : Fragment() {
                         }
                     }
                 }
+                if(scanError!=null){
+                    activity?.runOnUiThread {
+                        Toast.makeText(view.context,scanError.message,Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
 
                 binding?.firmwareDownloadForSelectedDevices?.isEnabled = !m_selectedDevices.isEmpty()
 
@@ -218,11 +225,7 @@ class FirmwareMultiDevices : Fragment() {
                 }
 
 
-            } catch (exception: BluIDSDKException) {
-                activity?.runOnUiThread {
-                    Toast.makeText(view.context, exception.message, Toast.LENGTH_SHORT).show()
-                }
-            }
+
 
         }
 
