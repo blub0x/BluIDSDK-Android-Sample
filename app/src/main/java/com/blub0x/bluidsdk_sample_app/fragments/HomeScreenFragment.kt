@@ -397,9 +397,9 @@ class HomeScreenFragment : Fragment() {
         m_diagnosticLogsStringBuilder.clear()
         m_diagnosticLogsStringBuilder.append(deviceTitle + "\n").append(deviceTime + "\n")
             .append(deviceDetails + "\n").append("Logs : \n")
+        m_diagnosticLogsStringBuilder.append(diagnosticLogs.logs)
         val logs = diagnosticLogs.logs
         Log.d("Logs in UI : ", logs)
-
 
         activity?.runOnUiThread {
             binding?.showDiagnosticLogs?.movementMethod = ScrollingMovementMethod()
@@ -557,7 +557,7 @@ class HomeScreenFragment : Fragment() {
 
             m_unlockedDevice = true
             enableOrDisableIncreaseDecreaseButtons()
-            binding?.toggleAutoTransfer?.isEnabled = false
+           // binding?.toggleAutoTransfer?.isEnabled = false
         }
     }
 
@@ -758,7 +758,7 @@ class HomeScreenFragment : Fragment() {
         binding?.toggleBluRemote?.setOnCheckedChangeListener(null)
         binding?.toggleEnhancedTap?.setOnCheckedChangeListener(null)
         binding?.toggleVibrate?.setOnCheckedChangeListener(null)
-
+        binding?.enableFileLogging?.setOnCheckedChangeListener(null)
         environmentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding?.environmentList?.adapter = environmentAdapter
         val index = m_envTypeList.indexOf(envSelected)
@@ -1023,6 +1023,9 @@ class HomeScreenFragment : Fragment() {
             }
         }
 
+        binding?.enableFileLogging?.setOnCheckedChangeListener { _, isChecked ->
+                m_BluIDSDK_Client?.enableFileLogging(isChecked)
+        }
         m_model.selectedDevice.value?.let {
             updateSelectedDeviceDetailsInUI()
         }

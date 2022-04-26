@@ -78,6 +78,7 @@
     <string name="show">Show</string>
     <string name="userID">User ID</string>
     <string name="getCards">Sync</string>
+    <string name="EnableFileLogging">Enable File Logging</string>
     <string-array name="AllowAccessType">
         <item name="foreground">Foreground</item>
         <item name="phoneUnlocked">Phone Unlocked</item>
