@@ -837,14 +837,6 @@ class HomeScreenFragment : Fragment() {
         binding?.transferCredsButton?.setOnClickListener(
             View.OnClickListener {
                 m_scope.launch {
-                    val personCards = Utility.m_BluIDSDK_Client?.syncPersonCards()
-                    personCards?.personCardDetails?.let { cards ->
-                        if (cards.isEmpty()) {
-                            activity?.runOnUiThread {
-                                Utility.m_AlertDialog?.show("No Credentials found to transfer")
-                            }
-                            return@launch
-                        }
                         m_model.selectedDevice.value?.let { device ->
                             val error = Utility.m_BluIDSDK_Client?.transferCredential(device.id)
 
@@ -864,7 +856,6 @@ class HomeScreenFragment : Fragment() {
                                 }
                             }
                         }
-                    }
                 }
             }
         )
