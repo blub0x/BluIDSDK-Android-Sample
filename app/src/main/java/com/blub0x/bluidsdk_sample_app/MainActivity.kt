@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST_CODE = 100
 
     val appPermissions_s = arrayOf<String>(
-        Manifest.permission.BLUETOOTH_SCAN,
-        Manifest.permission.BLUETOOTH_CONNECT,
+//        Manifest.permission.BLUETOOTH_SCAN,
+//        Manifest.permission.BLUETOOTH_CONNECT,
         Manifest.permission.INTERNET,
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         filter.addAction(Intent.ACTION_USER_UNLOCKED)
         filter.addAction(Intent.ACTION_USER_INITIALIZE)
         this.registerReceiver(deviceStateObserver, filter)
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.S) {
+//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.S) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -80,10 +80,10 @@ class MainActivity : AppCompatActivity() {
                     ), PERMISSION_REQUEST_CODE
                 )
             }
-        }else{
-            ActivityCompat.requestPermissions(
-                this, appPermissions_s, PERMISSION_REQUEST_CODE)
-        }
+//        }else{
+//            ActivityCompat.requestPermissions(
+//                this, appPermissions_s, PERMISSION_REQUEST_CODE)
+//        }
 
         startService()
     }
