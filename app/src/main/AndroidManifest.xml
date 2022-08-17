@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.blub0x.bluidsdk_sample_app">
-    <uses-permission android:name="android.permission.BLUETOOTH" android:required="true" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:required="true"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" android:required="true" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:required="true" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" android:required="true"/>
     <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
     <uses-permission android:name="android.permission.INTERNET" android:required="true"/>

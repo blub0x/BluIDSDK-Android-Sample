@@ -11,36 +11,36 @@ A sample android application for using BluID SDK
 4. Create a General User Account
 
    • Login into https://blusky.blub0x.com with BluB0X Occupancy Manager account credentials
-   
+
    • Click on Add User and enter user information and once added, the user will automatically get an email with login credentials.
-   
+
    • Further if needed BluB0X Occupancy Manager can assign credential(s) to the user(s)
 
 5. Requirements
-   
-   •Android SDK platform 31 (minimum 26)
-  
-   • Android SDK Build-tools 31
-  
+
+   •Android SDK platform 33 (minimum 26)
+
+   • Android SDK Build-tools 33
+
    • Android SDK command line tools (latest)
-  
+
    • Android SDK platform-tools 31.0.3
-  
-   • Gradle 7.0.2
-  
-   • Gradle Plugin for Android 7.0.2
+
+   • Gradle 7.3.3
+
+   • Gradle Plugin for Android 7.2.1
 
 ## Setup Instructions
 
-1. First step is to add “BluIDSDK.aar” as project dependency, download this file from [here](https://github.com/blub0x/BluIDSDK-Android-Sample/tree/main/app). 
-   
-   •Copy BluIDSDK.aar file into your project directory, 
+1. First step is to add “BluIDSDK.aar” as project dependency, download this file from [here](https://github.com/blub0x/BluIDSDK-Android-Sample/tree/main/app).
 
-    e.g. “app/BluIDSDK/BluIDSDK.aar”.
-   
+   •Copy BluIDSDK.aar file into your project directory,
+
+   e.g. “app/BluIDSDK/BluIDSDK.aar”.
+
    •Add the BluIDSDK.aar file in your project, as dependency.
-    Following line of code can be added into your app’s build.gradle file:
-    
+   Following line of code can be added into your app’s build.gradle file:
+
 ```kotlin
    implementation files('BluIDSDK/BluIDSDK-release.aar')
    implementation 'androidx.core:core-ktx:1.3.2'
@@ -56,7 +56,7 @@ A sample android application for using BluID SDK
    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1'
    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1'
    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
-   implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+   implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
    implementation 'com.squareup.retrofit2:adapter-rxjava:2.7.1'
@@ -81,51 +81,58 @@ A sample android application for using BluID SDK
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 <uses-permission  android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 ```
+
 3. After adding the required permissions in the Manifest file, you need to request the user for permissions. To do that, add the following lines in app’s Activity
 
-* **For Android 11 or lower versions, request permission using following code block**
-   ```kotlin
-      val appPermissions = arrayListOf<String>(
-               Manifest.permission.BLUETOOTH,
-               Manifest.permission.BLUETOOTH_ADMIN,
-               Manifest.permission.ACCESS_FINE_LOCATION,
-               Manifest.permission.INTERNET,
-               Manifest.permission.READ_EXTERNAL_STORAGE,
-               Manifest.permission.WRITE_EXTERNAL_STORAGE,
-               Manifest.permission.FOREGROUND_SERVICE,
-         )
-   ```
-* **For Android 12 or higher versions, request permission using following code block**
-   ```kotlin
-   val appPermissions = arrayListOf<String>(
-         Manifest.permission.BLUETOOTH_SCAN,
-         Manifest.permission.BLUETOOTH_CONNECT,
-         Manifest.permission.INTERNET,
-         Manifest.permission.READ_EXTERNAL_STORAGE,
-         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-         Manifest.permission.FOREGROUND_SERVICE,
-      )
-   ```
+- **For Android 11 or lower versions, request permission using following code block**
+  ```kotlin
+     val appPermissions = arrayListOf<String>(
+              Manifest.permission.BLUETOOTH,
+              Manifest.permission.BLUETOOTH_ADMIN,
+              Manifest.permission.ACCESS_FINE_LOCATION,
+              Manifest.permission.INTERNET,
+              Manifest.permission.READ_EXTERNAL_STORAGE,
+              Manifest.permission.WRITE_EXTERNAL_STORAGE,
+              Manifest.permission.FOREGROUND_SERVICE,
+              Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+        )
+  ```
+- **For Android 12 or higher versions, request permission using following code block**
+  ```kotlin
+  val appPermissions = arrayListOf<String>(
+        Manifest.permission.BLUETOOTH_SCAN,
+        Manifest.permission.BLUETOOTH_CONNECT,
+        Manifest.permission.INTERNET,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.FOREGROUND_SERVICE,
+        Manifest.permission.ACCESS_FINE_LOCATION,
+     )
+  ```
 
 4. After adding the global variables, you need to add the following lines of code into the onCreate function
+
 ```kotlin 
             ActivityCompat.requestPermissions(
                this, appPermissions, PERMISSION_REQUEST_CODE)
 ```
 
-5. Next step is to register the DeviceStateObserver, to allow gesture based authentication  depending on access types. 
+5. Next step is to register the DeviceStateObserver, to allow gesture based authentication  depending on access types.
 
    To register the DeviceStateObserver, add the following line, inside application tag of your app’s Manifest file
+
 ```kotlin
 <receiver android:name="com.blub0x.BluIDSDK.utils.DeviceStateObserver" android:exported="false"></receiver>
 ```
 
 6. We also need to register the BluIDSDK service in your app’s Manifest file.
+
 ```kotlin
 <service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true" android:exported="false"/>
 ```
 
 7. Once DeviceStateObserver is added to your Manifest file, we need to create an instance of DeviceStateObserver and register the receiver in your app’s Activity.
+
 ```kotlin
 import com.blub0x.BluIDSDK.utils.DeviceStateObserver
 

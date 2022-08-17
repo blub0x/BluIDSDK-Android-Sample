@@ -132,9 +132,23 @@ class FirmwareListFragment : Fragment() {
                                                         progressIndicator.m_dialogView?.findViewById<TextView>(
                                                             R.id.progressDisplay
                                                         )
+                                                    val completionButton =
+                                                        progressIndicator.m_dialogView?.findViewById<Button>(
+                                                            R.id.completionButton
+                                                        )
                                                     progressBar?.progress = progress
                                                     progressDisplay?.text =
                                                         progress.toString() + "%"
+                                                    if (progress.toString() == "100")
+                                                    {
+                                                        completionButton?.setVisibility(View.VISIBLE)
+                                                        completionButton?.setOnClickListener(
+                                                            View.OnClickListener {
+//                                                                findNavController().navigate(R.id.action_firmwareListFragment_to_homeScreenFragment)
+                                                                progressIndicator.dismiss()
+                                                            }
+                                                        )
+                                                    }
                                                 }
                                             }
                                         )

@@ -25,16 +25,27 @@ class MainActivity : AppCompatActivity() {
     private val PERMISSION_REQUEST_CODE = 100
 
     val appPermissions_s = arrayOf<String>(
-//        Manifest.permission.BLUETOOTH_SCAN,
-//        Manifest.permission.BLUETOOTH_CONNECT,
+        Manifest.permission.BLUETOOTH_SCAN,
+        Manifest.permission.BLUETOOTH_CONNECT,
+        Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.INTERNET,
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.FOREGROUND_SERVICE,
     )
+    val appPermissions = arrayOf<String>(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.BLUETOOTH,
+        Manifest.permission.BLUETOOTH_ADMIN,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.FOREGROUND_SERVICE,
+        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var packageName = applicationContext.packageName
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         Utility.m_ProgressBar = ProgressDialog(this)
         Utility.m_AlertDialog = AlertDialog(this)
@@ -46,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         filter.addAction(Intent.ACTION_USER_UNLOCKED)
         filter.addAction(Intent.ACTION_USER_INITIALIZE)
         this.registerReceiver(deviceStateObserver, filter)
-//        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.S) {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.S) {
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_FINE_LOCATION
@@ -76,14 +87,18 @@ class MainActivity : AppCompatActivity() {
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.FOREGROUND_SERVICE,
-                        Manifest.permission.ACCESS_BACKGROUND_LOCATION
                     ), PERMISSION_REQUEST_CODE
                 )
             }
-//        }else{
-//            ActivityCompat.requestPermissions(
-//                this, appPermissions_s, PERMISSION_REQUEST_CODE)
-//        }
+            ActivityCompat.requestPermissions(
+                this, arrayOf(
+                    Manifest.permission.ACCESS_BACKGROUND_LOCATION,
+                ), PERMISSION_REQUEST_CODE
+            )
+        }else{
+            ActivityCompat.requestPermissions(
+                this, appPermissions_s, PERMISSION_REQUEST_CODE)
+        }
 
         startService()
     }

@@ -784,9 +784,9 @@ class HomeScreenFragment : Fragment() {
                         Environment(env)
                     )
 
-                    if(Utility.m_BluIDSDK_Client?.isBatteryOptimizationEnabled(requireActivity().packageName) != false){
-                        Utility.m_AlertDialog?.showBatteryOptimizationOptions()
-                    }
+//                    if(Utility.m_BluIDSDK_Client?.isBatteryOptimizationEnabled(requireActivity().packageName) != false){
+//                        Utility.m_AlertDialog?.showBatteryOptimizationOptions()
+//                    }
 
                     binding?.loginNavigationButton?.text = "Login"
                     binding?.deviceFunctionality?.let { enableDisableView(it, false) }
@@ -852,7 +852,15 @@ class HomeScreenFragment : Fragment() {
 
                             error?.let { bluIDSDKError ->
                                 activity?.runOnUiThread {
-                                    Utility.m_AlertDialog?.show("${bluIDSDKError.message} type:${bluIDSDKError.type}")
+                                    if(bluIDSDKError.type == BluIDSDKErrorType.BLUETOOTH_POWER_OFF){
+                                        Utility.m_AlertDialog?.show("Bluetooth is disabled",BluIDSDKErrorType.BLUETOOTH_POWER_OFF)
+                                    }
+                                    else if(bluIDSDKError.type == BluIDSDKErrorType.LOCATION_POWER_OFF) {
+                                        Utility.m_AlertDialog?.show("Location is disabled",BluIDSDKErrorType.LOCATION_POWER_OFF)
+                                    }
+                                    else{
+                                        Utility.m_AlertDialog?.show("${bluIDSDKError.message} type:${bluIDSDKError.type}")
+                                    }
                                 }
                             }
                         }

@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.blub0x.BluIDSDK.models.BluIDSDKErrorType
 import com.blub0x.BluIDSDK.models.BluIDSDKException
 import com.blub0x.BluIDSDK.models.ScanFilter
 import com.blub0x.BluIDSDK.models.Device_Information
@@ -88,7 +89,20 @@ class ScanDevicesFragment : Fragment() {
                     activity?.runOnUiThread {
                         Utility.m_ProgressBar?.dismiss()
                         Toast.makeText(view.context, scanError.message, Toast.LENGTH_SHORT).show()
-                        scanError.message?.let { Utility.m_AlertDialog?.show(it) }
+                        scanError.message?.let {
+                        if(scanError.type.name == "BLUETOOTH_POWER_OFF") {
+                            Utility.m_AlertDialog?.show(it, BluIDSDKErrorType.BLUETOOTH_POWER_OFF)
+                        }
+                        else if(scanError.type.name == "LOCATION_POWER_OFF"){
+                            Utility.m_AlertDialog?.show(it, BluIDSDKErrorType.LOCATION_POWER_OFF)
+                        }
+                        else if(scanError.type.name == "BLUETOOTH_UNAUTHORIZED" || scanError.type.name == "LOCATION_UNAUTHORIZED" ) {
+                            Utility.m_AlertDialog?.show(it, BluIDSDKErrorType.BLUETOOTH_UNAUTHORIZED)
+                        }
+                        else{
+                            Utility.m_AlertDialog?.show(it)
+                            }
+                        }
                         findNavController().navigate(R.id.action_scanDevicesFragment_to_homeScreenFragment)
                     }
                 }
