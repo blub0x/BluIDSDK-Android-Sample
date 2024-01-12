@@ -26,9 +26,9 @@ A sample android application for using BluID SDK
 
    • Android SDK platform-tools 34.0.0
 
-   • Gradle 8.1.1
+   • Gradle 8.0
 
-   • Gradle Plugin for Android 7.2.1
+   • Gradle Plugin for Android 8.1.1
 
 ## Setup Instructions
 
