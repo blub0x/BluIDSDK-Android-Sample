@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.blub0x.BluIDSDK.utils.BLECentral
-import com.blub0x.bluidsdk_sample_app.R
 import com.blub0x.bluidsdk_sample_app.fragments.AlertDialog
 import com.blub0x.bluidsdk_sample_app.fragments.ProgressDialog
 import com.blub0x.bluidsdk_sample_app.utils.Utility
@@ -32,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.FOREGROUND_SERVICE,
+        Manifest.permission.FOREGROUND_SERVICE_LOCATION,
     )
     val appPermissions = arrayOf<String>(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -99,9 +99,27 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(
                 this, appPermissions_s, PERMISSION_REQUEST_CODE)
         }
+        checkPermissionAndStartService()
 
-        startService()
+
+        }
+
+    private fun checkPermissionAndStartService(){
+        if( ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            startService();
+        }
     }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String?>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        checkPermissionAndStartService();
+    }
+
+
 
     override fun onStart() {
         super.onStart()
