@@ -18,15 +18,15 @@ A sample android application for using BluID SDK
 
 5. Requirements
 
-   •Android SDK platform 33 (minimum 26)
+   •Android SDK platform 34 (minimum 26)
 
-   • Android SDK Build-tools 33
+   • Android SDK Build-tools 34
 
    • Android SDK command line tools (latest)
 
-   • Android SDK platform-tools 31.0.3
+   • Android SDK platform-tools 34.0.0
 
-   • Gradle 7.3.3
+   • Gradle 8.1.1
 
    • Gradle Plugin for Android 7.2.1
 
@@ -80,6 +80,7 @@ A sample android application for using BluID SDK
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 <uses-permission  android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
 ```
 
 3. After adding the required permissions in the Manifest file, you need to request the user for permissions. To do that, add the following lines in app’s Activity
@@ -107,6 +108,7 @@ A sample android application for using BluID SDK
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
         Manifest.permission.FOREGROUND_SERVICE,
         Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.FOREGROUND_SERVICE_LOCATION,
      )
   ```
 
@@ -128,7 +130,7 @@ A sample android application for using BluID SDK
 6. We also need to register the BluIDSDK service in your app’s Manifest file.
 
 ```kotlin
-<service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true" android:exported="false"/>
+<service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true" android:exported="false" android:foregroundServiceType="location" />
 ```
 
 7. Once DeviceStateObserver is added to your Manifest file, we need to create an instance of DeviceStateObserver and register the receiver in your app’s Activity.
@@ -148,7 +150,7 @@ this.registerReceiver(deviceStateObserver, filter)
 
 8. After the DeviceStateObserver has been registered, you need to register the BluIDSDK service with your app. To do that, add the following line inside the application tag of your app’s Manifest file
 ```kotlin
-<service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true" android:exported="false"/>
+<service android:name="com.blub0x.BluIDSDK.utils.BLECentral" android:enabled="true" android:stopWithTask="true" android:exported="false"  android:foregroundServiceType="location" />
 ```
 9. After the DeviceStateObserver has been registered, we also need to register BluIDSDK service in onCreate() function
 ```kotlin
