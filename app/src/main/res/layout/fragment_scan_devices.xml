@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ScanDevicesFragment">
+    tools:context=".fragments.ScanDevicesFragment"
+    android:fitsSystemWindows="true"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/scanDeviceRecyclerView"
