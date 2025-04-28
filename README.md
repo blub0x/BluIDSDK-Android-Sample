@@ -18,15 +18,13 @@ A sample android application for using BluID SDK
 
 5. Requirements
 
-   •Android SDK platform 34 (minimum 26)
+   •Android SDK platform 35 (minimum 26)
 
-   • Android SDK Build-tools 34
+   • Android SDK Build-tools 35
 
    • Android SDK command line tools (latest)
 
-   • Android SDK platform-tools 34.0.0
-
-   • Gradle 8.0
+   • Gradle 8.1
 
    • Gradle Plugin for Android 8.1.1
 

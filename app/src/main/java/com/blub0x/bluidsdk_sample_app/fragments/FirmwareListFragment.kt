@@ -145,29 +145,26 @@ class FirmwareListFragment : Fragment() {
                                                         completionButton?.setOnClickListener(
                                                             View.OnClickListener {
 //                                                                findNavController().navigate(R.id.action_firmwareListFragment_to_homeScreenFragment)
-                                                                progressIndicator.dismiss()
+                                                                progressIndicator.dismiss() // 👈 dismiss here
+                                                                Utility.progressDialog = null
+
+                                                                m_model.updatedFirmwareForSingleDevice.value = true // trigger observer
+                                                                Utility.m_ProgressBar?.dismiss()
+
+                                                                findNavController().navigate(R.id.action_firmwareListFragment_to_homeScreenFragment)
                                                             }
                                                         )
                                                     }
                                                 }
                                             }
                                         )
-                                    progressIndicator.dismiss()
-                                    Utility.progressDialog = null
-                                    activity.runOnUiThread {
-                                        if (firmwareUpdateResponse == null) {
-                                            m_model.updatedFirmwareForSingleDevice.value = true
-                                            Toast.makeText(
-                                                view.context,
-                                                "Firmware update completed",
-                                                Toast.LENGTH_SHORT
-                                            ).show()
-                                        } else {
+                                    if (firmwareUpdateResponse != null) {
+                                        activity.runOnUiThread {
+                                            progressIndicator.dismiss()
+                                            Utility.progressDialog = null
                                             m_model.updatedFirmwareForSingleDevice.value = false
                                             Utility.m_AlertDialog?.show("$firmwareUpdateResponse")
                                         }
-                                        Utility.m_ProgressBar?.dismiss()
-                                        findNavController().navigate(R.id.action_firmwareListFragment_to_homeScreenFragment)
                                     }
                                 }
                             }
