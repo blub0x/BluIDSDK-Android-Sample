@@ -18,9 +18,9 @@ A sample android application for using BluID SDK
 
 5. Requirements
 
-   •Android SDK platform 35 (minimum 26)
+   •Android SDK platform 36 (minimum 26)
 
-   • Android SDK Build-tools 35
+   • Android SDK Build-tools 36
 
    • Android SDK command line tools (latest)
 
