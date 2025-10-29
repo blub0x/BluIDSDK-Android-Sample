@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.blub0x.bluidsdk_sample_app"
         minSdk 26
-        targetSdk 35
-        versionCode 3
-        versionName "1.02"
+        targetSdk 36
+        versionCode 4
+        versionName "1.03"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
